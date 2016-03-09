@@ -1,0 +1,19 @@
+body { padding-top:5px; }
+.add
+{
+	height: 30px;
+	width: 150px;
+	padding: 1px;
+}
+
+.updateDiv
+{
+	background:#e1e1e1; 
+	top:40%;
+	left: 40%;
+	width:auto; 
+	position:absolute; 
+	z-index:500;
+	padding:30px; 
+	box-shadow:0 0 50px rgba(0,0,0,0.4)
+}

@@ -1,0 +1,60 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en" ng-controller="indexController">
+  <head>
+   
+    <meta charset="UTF-8">
+    <title>Student Apps</title>
+    
+    <!-- angular library -->  
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular/angular-route.js"></script>
+    <script src="lib/angular/angular-messages.js"></script>
+    <script src="lib/angular/angular-animate.js"></script> 
+    <script src="lib/angular/angular-translate/angular-translate.js"></script>
+    <script src="lib/angular/angular-translate/angular-translate-storage-local.min.js"></script>
+    <script src="lib/angular/angular-translate/angular-translate-loader-static-files.min.js"></script>
+    
+    <!--Bootstrap library -->  
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"> 
+      <link rel="stylesheet" href="lib/bootstrap/bootstrap.min.css">
+
+    <!--user defined js and css files-->
+    <script src="controllers/index-controller/indexCtrl.js"></script>  
+    <script src="controllers/account-controller/loginController.js"></script>
+    <script src="controllers/account-controller/signupController.js"></script>
+    <script src="controllers/content-controller/studentController.js"></script>
+    <script src="controllers/content-controller/localizationController.js"></script>
+    <script src="controllers/content-controller/datePickerCtrl.js"></script>
+    <script src="controllers/content-controller/customFilterCtrl.js"></script>
+    
+    <script src="services/authenticateLogin.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  </head>
+  <body ng-app="indexModule" ng-controller="indexCtrl">
+
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <a class="navbar-brand">Student Apps</a>
+          <div align="right" ng-init="lang='en'">
+            <span style="color:white">{{'LANGUAGE' | translate}}:</span> 
+            <select ng-change="changeLanguage(lang)" ng-model="lang">
+              <option  value="en" selected>{{"LANG_ENGLISH" | translate}}</option>
+              <option value="sp">{{"LANG_SPANISH" | translate}}</option>
+            </select>
+          </div>
+        </div>
+      
+      <div class="navbar-header">
+        <ul class="nav navbar-nav">
+          <li><a href="#Login">{{'LOGIN' | translate}}</a></li>
+          <li><a href="#Signup">{{'SIGNUP' | translate}}</a></li>    
+        </ul>
+      </div>
+    </nav>
+    <div ng-view></div>
+  </body>
+</html>

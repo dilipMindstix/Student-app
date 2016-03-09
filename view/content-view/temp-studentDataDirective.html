@@ -1,0 +1,98 @@
+<div>
+  <form>
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-search"></i></div>
+            <input type="text" class="form-control" placeholder="{{'SEARCH' | translate}}" ng-model="searchRoll">
+          </div>      
+        </div>     
+    </form>
+<table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <td>
+          <!--afterClick(argument) is for change sorting order i.e., reverse=true or reverse=false -->
+          <a href="" ng-click="resortWhenclick('name')">
+            Name
+            <span ng-show="sortType == 'name'" class="fa fa-caret-down"></span>
+          </a>
+        </td>
+
+        <td>
+          <a href="" ng-click="resortWhenclick('course')">
+            <span ng-show="sortType == 'course'" class="fa fa-caret-down"></span>
+            Course 
+          </a>
+        </td>
+
+        <td>
+          <a href="" ng-click="resortWhenclick('roll')">
+            <span ng-show="sortType == 'roll'" class="fa fa-caret-down"></span>
+            Roll No
+          </a>
+        </td>
+
+        <td>
+          Action
+        </td>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <tr ng-repeat="stud in student | orderBy:sortType:sortReverse| filter:searchRoll">
+        <td>
+            <div >{{ stud.name }}</div>
+            <div ng-if="showEdit[$index]"><input type="text" value="{{stud.name[$index]}}" placeholder="Enter name" ng-model='name[$index]'></div>
+        </td>
+        <td>
+            <div>{{ stud.course }}</div>
+            <div ng-if="showEdit[$index]">
+                <select class="add" ng-model='course[$index]'>
+                    <option ng-repeat="c in courses" ng-selected="c.name==stud.course[$index]" value="{{c.name}}">{{c.name}}</option>
+                </select>
+            </div>
+        </td>
+
+        <td>
+            <div>{{ stud.roll }}</div>
+            <div ng-if="showEdit[$index]"><input type="number" value="{{stud.roll[$index]}}" placeholder="Enter roll" ng-model='roll[$index]'></div>
+        </td>
+        <td>
+            <div>
+                <!--<a href="" ng-click="editRow(stud)"> its working-->
+                <a href="" ng-click="showEdit[$index]=!showEdit[$index]">
+                    <span class="fa fa-pencil-square-o"></span>
+                </a>
+                    &nbsp; &nbsp; &nbsp; &nbsp;
+                <a href="" ng-click="removeRow(stud)">
+                    <span class="fa fa-trash-o"></span>
+                </a>
+            </div>
+            <div ng-if="showEdit[$index]">
+                <button ng-click="showEdit[$index]=editRow(stud, $index)">Update</button>
+            </div>
+        </td>
+      </tr> 
+      <tbody>
+      <tr>
+        <td>
+          <input type="text" placeholder="{{'NAME' | translate}}" ng-model='aName'>
+        </td>
+        <td>
+          <select class="add" ng-model='aCourse'>
+            <option ng-repeat="c in courses" value="{{c.name}}">{{c.name}}</option>
+          </select>
+        </td>
+
+        <td><input type="number" placeholder="{{'ROLL' | translate}}" ng-model='aRoll'></td>
+
+        <td>
+          <button ng-desabled="((aName!='')&&(aCourse!='')&&(aRoll>0))" ng-click="addData(aName,aCourse,aRoll)" >
+            {{'ADD_NEW' | translate}}
+          </button>
+        </td>
+      </tr>    
+    </tbody>
+  </table>  
+  </div>  
+</div>

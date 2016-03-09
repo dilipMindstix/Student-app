@@ -1,0 +1,21 @@
+<div ng-controller="localizationController" ng-init="lang='en'">
+	
+	<h3 align='center'>{{'LOCALE_EXAMPLE' | translate}}</h3><br>
+	<div class="container">
+		<div class='row'>
+			<div class="col-md-5">
+				<table class='table'>
+					<tr>
+						<td translate='ENTER_AMOUNT'></td>
+						<td><input type="text" ng-model='amt' placeholder="Amount"></td>
+					</tr>
+					<tr>
+						<td translate='CURRENCY'></td>
+						<td ng-if="lang=='en'">{{amt | currency: '$ '}}</td>
+						<td ng-if="lang=='sp'">{{amt | currency: '&#8364 '}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

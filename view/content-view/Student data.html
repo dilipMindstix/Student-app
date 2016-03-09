@@ -1,0 +1,61 @@
+<div ng-controller="studentController">
+    <div class="container">
+		<form>
+			<div class="form-group">
+				<div class="input-group">
+					<div class="input-group-addon"><i class="fa fa-search"></i></div>
+					<input type="text" class="form-control" ng-model="searchRoll">
+				</div>      
+			</div>     
+		</form>     
+    	<table class="table table-bordered table-striped" align='center' style="width:100%"> 
+    		<tr>
+    			<td>
+					<a href="" ng-click="resortWhenclick('name')">
+						{{'NAME' | translate}}
+						<span ng-show="sortType == 'name'" class="fa fa-caret-down"></span>
+					</a>
+				</td>
+
+				<td>
+					<a href="" ng-click="resortWhenclick('course')">
+						<span ng-show="sortType == 'course'" class="fa fa-caret-down"></span>
+						{{'COURSE' | translate}}
+					</a>
+				</td>
+
+				<td>
+					<a href="" ng-click="resortWhenclick('roll')">
+						<span ng-show="sortType == 'roll'" class="fa fa-caret-down"></span>
+						{{'ROLL_NO' | translate}}
+					</a>
+				</td>
+
+				<td>
+					{{'ACTION' | translate}}
+				</td>
+    		</tr>
+    		<tr student-data ng-repeat="student in students | orderBy:sortType:sortReverse | filter:searchRoll"></tr>
+
+    		<tr>
+		        <td>
+		          <input type="text" placeholder="{{'NAME' | translate}}" ng-model='name'>
+		        </td>
+		        <td>
+		          <select class="add" ng-model='course'>
+		            <option ng-repeat="c in courses" value="{{c.name}}">{{c.name}}</option>
+		          </select>
+		        </td>
+
+		        <td><input type="number" placeholder="{{'ROLL' | translate}}" ng-model='roll'></td>
+
+		        <td>
+		          <button ng-if="((name!='')&&(course!='')&&(roll>0))" ng-click="addStudent(name,course,roll)" >
+		            {{'ADD_NEW' | translate}}
+		          </button>
+		        </td>
+		      </tr>    
+    	</table>
+    	<!--<div student-data records="students"></div>-->
+  	</div>  
+</div>

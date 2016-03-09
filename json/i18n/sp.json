@@ -1,0 +1,32 @@
+{
+	"LOCALE_EXAMPLE":"Ejemplo de localización",
+	"ENTER_AMOUNT":"Ingrese el monto",
+	"CURRENCY":"Moneda",
+	"LANG_ENGLISH":"Inglés",
+	"LANG_SPANISH":"Español",
+	"LANGUAGE":"Idioma",
+	
+	"PASSWORD":"Contraseña",
+	"USER_NAME":"Nombre de usuario",
+	"LOGIN_SUCCESSFULL":"Inicio de sesión correcto",
+	"LOGIN_FAILED":"Error de inicio de sesion",
+	"LOGIN":"iniciar sesión",
+	"SIGNUP":"Regístrate",
+	"STUDENT_DATA":"datos de los estudiantes",
+	"LOCALIZATION_EX":"Localización Ex",
+	
+	"REGISTER":"Registro",
+	"USER_ID":"Identidad de usuario",
+	"CONFIRM_PASSWORD":"Confirmar contraseña",
+	"FULL_NAME":"Nombre completo",
+	"ADDRESS":"Dirección",
+
+	"SEARCH":"Buscar",
+	"NAME":"Nombre",
+	"COURSE":"Curso",
+	"ROLL":"Rodar",
+	"ROLL_NO":"Número de rollo",
+	"ACTION":"Acción",
+	"ADD_NEW_STUDENT_DATA":"Añadir nuevos datos del estudiante",
+	"ADD_NEW":"Añadir nuevo"
+	}

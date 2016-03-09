@@ -1,0 +1,7 @@
+[
+    { "name": "Dilip", "course": "MCA", "roll": 13 },
+    { "name": "Mansih", "course": "BTech", "roll": 1 },
+    { "name": "Sunil", "course": "Msc", "roll": 5 },
+    { "name": "Nilesh", "course": "Bsc", "roll": 2 },
+    { "name": "Rohit", "course": "BCA", "roll": 6 }
+  ]

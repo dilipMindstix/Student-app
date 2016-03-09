@@ -1,0 +1,32 @@
+{
+	"LOCALE_EXAMPLE":"Localization example",
+	"ENTER_AMOUNT":"Enter amount",
+	"CURRENCY":"Currency",
+	"LANG_ENGLISH":"English",
+	"LANG_SPANISH":"Spanish",
+	"LANGUAGE":"Language",
+	
+	"PASSWORD":"Password",
+	"USER_NAME":"Username",
+	"LOGIN_SUCCESSFULL":"Login Successful",
+	"LOGIN_FAILED":"Login Failed",
+	"LOGIN":"Login",
+	"SIGNUP":"Signup",
+	"STUDENT_DATA":"Student data",
+	"LOCALIZATION_EX":"Localization Ex",
+	
+	"REGISTER":"Register",
+	"USER_ID":"User id",
+	"CONFIRM_PASSWORD":"Confirm password",
+	"FULL_NAME":"Full name",
+	"ADDRESS":"Address",
+
+	"SEARCH":"Search",
+	"NAME":"Name",
+	"COURSE":"Course",
+	"ROLL":"Roll",
+	"ROLL_NO":"Roll no",
+	"ACTION":"Action",
+	"ADD_NEW_STUDENT_DATA":"Add new student data",
+	"ADD_NEW":"Add new"
+}
