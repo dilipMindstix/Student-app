@@ -35,7 +35,8 @@
 					{{'ACTION' | translate}}
 				</td>
     		</tr>
-    		<tr student-data ng-repeat="student in students | orderBy:sortType:sortReverse | filter:searchRoll"></tr>
+    		 <!-- ng-if="($index >=recordFrom)&&($index <= recordTo)" -->
+    		<tr student-data ng-repeat="student in students | orderBy:sortType:sortReverse | filter:searchRoll " ng-if="($index >=recordFrom)&&($index <= recordFrom+rpp-1)"></tr>
 
     		<tr>
 		        <td>
@@ -56,6 +57,20 @@
 		        </td>
 		      </tr>    
     	</table>
-    	<!--<div student-data records="students"></div>-->
+		
+		<div align="center">
+			<p>Total records :<b>{{ totalRecord}}</b></p>
+			<p>Records perpage :<b>{{rpp}}</b></p>
+			<p>Total links in each page:<b>{{linkPerPage()}}</b></p>
+			
+			<input type="number" placeholder="Records per page" ng-model="rpp"><br>
+			<ul class="pagination" ng-if="rpp>0">
+				<li><a href="" ng-click="gotoPrevPage()">Prev</a></li>
+				<li ng-repeat="student in students | limitTo: linkPerPage()">
+					<a href="" ng-click="gotoPage($index)">{{$index+1}}</a>
+				</li>
+				<li ><a href="" ng-click="gotoNextPage()" >Next</a></li>
+			</ul>
+		</div>
   	</div>  
 </div>

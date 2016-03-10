@@ -2,6 +2,8 @@ app.controller('loginController', function($scope, $http,$timeout,$window,authen
 {
 	$scope.checked=false;
 	$scope.status=false; //status for whether the use exist or not, ture or false.
+	$scope.userId="dilip123";
+	$scope.password="123456";
 	$scope.login=function(uid,pass)
 	{
 		authenticateLogin.isExist(uid,pass, function(exist,index) 
