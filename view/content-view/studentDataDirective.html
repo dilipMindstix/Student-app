@@ -1,35 +1,40 @@
 <tr>
-  <td>
-    <div ng-show="!showDiv[$index]">{{student.name}}</div><br>
-    <div ng-show="showDiv[$index]">
-      <input type="text" value="{{student.name}}" ng-model='student.name'>
-    </div>
-  </td>
-  <td>
-    <div ng-show="!showDiv[$index]">{{student.course}}</div><br>
-    <div ng-show="showDiv[$index]">
-      <select class="add" ng-model='student.course'>
-        <option ng-repeat="c in courses" ng-selected="c.name==student.course" value="{{c.name}}">{{c.name}}</option>
-      </select>
-    </div>
-  </td>
-  <td>
-    <div ng-show="!showDiv[$index]">{{student.roll}}</div><br>
-    <div ng-show="showDiv[$index]">
-      <input type="number" value="{{student.roll}}" placeholder="Enter roll" ng-model="student.roll">
-    </div>
-  </td>
-  <td>
-    <div ng-show="!showDiv[$index]">
-      <a href="" ng-click="showDiv[$index]=!showDiv[$index]">
-        <span class="fa fa-pencil-square-o"></span>
-      </a>
-        &nbsp; &nbsp; &nbsp; &nbsp;
-      <a href="" ng-click="removeStudent(student)">
-        <span class="fa fa-trash-o"></span>
-      </a>
-    </div><br>
-    <div ng-show="showDiv[$index]">
-      <button ng-click="showDiv[$index]=!showDiv[$index]">Update</button></div>
-  </td>
+   <td>
+      <div ng-show="!showDiv[$index]">{{student.name}}</div>
+      <br>
+      <div ng-show="showDiv[$index]">
+         <input type="text" value="{{student.name}}" ng-model='student.name'>
+      </div>
+   </td>
+   <td>
+      <div ng-show="!showDiv[$index]">{{student.course}}</div>
+      <br>
+      <div ng-show="showDiv[$index]">
+         <select class="add" ng-model='student.course'>
+            <option ng-repeat="c in courses" ng-selected="c.name==student.course" value="{{c.name}}">{{c.name}}</option>
+         </select>
+      </div>
+   </td>
+   <td>
+      <div ng-show ="!showDiv[$index]">{{student.roll}}</div>
+      <br>
+      <div ng-show="showDiv[$index]">
+         <input type="number" value="{{student.roll}}" placeholder="Enter roll" ng-model="student.roll">
+      </div>
+   </td>
+   <td>
+      <div ng-show="!showDiv[$index]">
+         <a href="" ng-click="showDiv[$index]=!showDiv[$index]">
+         <span class="fa fa-pencil-square-o"></span>
+         </a>
+         &nbsp; &nbsp; &nbsp; &nbsp;
+         <a href="" ng-click="removeStudent(student)">
+         <span class="fa fa-trash-o"></span>
+         </a>
+      </div>
+      <br>
+      <div ng-show="showDiv[$index]">
+         <button ng-click="showDiv[$index]=!showDiv[$index]">Update</button>
+      </div>
+   </td>
 </tr>

@@ -1,19 +1,19 @@
-body { padding-top:5px; }
-.add
-{
-	height: 30px;
-	width: 150px;
-	padding: 1px;
+body {
+    padding - top: 5 px;
+}
+.add {
+    height: 30 px;
+    width: 150 px;
+    padding: 1 px;
 }
 
-.updateDiv
-{
-	background:#e1e1e1; 
-	top:40%;
-	left: 40%;
-	width:auto; 
-	position:absolute; 
-	z-index:500;
-	padding:30px; 
-	box-shadow:0 0 50px rgba(0,0,0,0.4)
+.updateDiv {
+    background: #e1e1e1;
+    top: 40 % ;
+    left: 40 % ;
+    width: auto;
+    position: absolute;
+    z - index: 500;
+    padding: 30 px;
+    box - shadow: 0 0 50 px rgba(0, 0, 0, 0.4)
 }
