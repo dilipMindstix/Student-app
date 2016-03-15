@@ -10,7 +10,7 @@
       <div class="form-group" >
          <label for="username">{{'USER_ID' | translate}}</label>
          <div class="input-group">
-            <input type="text" ng-focus="checked=false" class="form-control" ng-model="userId" placeholder="Enter user id"  />
+            <input type="text" ng-focus="checked=false" class="form-control" name="uid" ng-model="userId" placeholder="Enter user id"  required/>
             <div class="input-group-addon"><i class="fa fa-user"></i></div>
          </div>
       </div>
@@ -34,26 +34,8 @@
             </div>
          </div>
          <div class="form-actions" >
-            <button type="submit" ng-click="login(userId,password)" class="btn btn-primary" style="width:100%;">{{'LOGIN' | translate}}</button>
+            <button ng-click="getUser(userId)" class="btn btn-primary" style="width:100%;">{{'LOGIN' | translate}}</button>
          </div>
       </div>
    </form>
-   <div ng-if="show">
-      <table class='table'>
-         <thead>
-            <tr style="font-weight: bold;">
-               <td>Name</td>
-               <td>User Id</td>
-               <td>Password</td>
-            </tr>
-         </thead>
-         <tbody>
-            <tr ng-repeat="user in loginData">
-               <td>{{user.name}}</td>
-               <td>{{user.uid}}</td>
-               <td>{{user.password}}</td>
-            </tr>
-         </tbody>
-      </table>
-   </div>
 </div>

@@ -1,25 +1,51 @@
-app.controller('loginController', function($scope, $http, $timeout, $window, authenticateLogin) {
+app.controller('loginController', function($scope,DataService) {
     $scope.checked = false;
     $scope.status = false; //status for whether the use exist or not, ture or false.
-    $scope.userId = "dilip123";
-    $scope.password = "123456";
-    $scope.login = function(uid, pass) {
-        authenticateLogin.isExist(uid, pass, function(exist, index) {
-            $scope.status = exist;
-            $scope.checked = true;
+   
+    $scope.users = [];
+    $scope.userId = null;
+    $scope.user = {};
+    $scope.message = null;
 
-            if (exist == true) {
-                console.log("Authorized!");
-                $window.location.href = 'Home.html';
-                //console.log(index);
-            } else {
-                console.log("Unauthorized!")
-            }
-        });
+    $scope.getUsers = function() 
+    {
+      DataService.getUsers().then(function(data) 
+      {
+        $scope.users = data;
+        $scope.loading = false;
+      })
     }
 
-    $http.get("json/loginDetail.json")
-        .then(function(response) {
-            $scope.loginData = response.data;
-        });
+    $scope.getUser = function(id) 
+    {
+      // check required input
+      if ($scope.form.uid.$error.required) 
+      {
+        $scope.message = "Please add user's id";
+        return;
+      }
+
+      DataService.getUser(id).then(function(data) 
+      {   
+          if (typeof data === "string") 
+          {
+              // iin case user not found
+              $scope.status = false;
+              $scope.checked = true;
+              $scope.message = data;
+              $scope.users = null;
+          } 
+          else 
+          {
+            //in case user found
+            $scope.status=true;
+            $scope.checked = false;
+            $scope.users = [data];
+            $scope.message=null;
+            console.log(data);
+            console.log([data]);
+          }
+      })
+    }
+
 });
