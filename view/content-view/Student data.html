@@ -32,7 +32,6 @@
                {{'ACTION' | translate}}
             </td>
          </tr>
-         <!-- ng-if="($index >=recordFrom)&&($index <= recordTo)" -->
          <tr student-data ng-repeat="student in students | orderBy:sortType:sortReverse | filter:searchRoll " ng-if="($index >=recordFrom)&&($index <= recordFrom+rpp-1)"></tr>
          <tr>
             <td>

@@ -1,4 +1,4 @@
-app.controller('studentController', function($scope, $http, studentService, courseService) {
+app.controller('studentController', function($scope, $http, studentService, courseService, paginationService) {
     /*Reading students data */
     $scope.sortType = 'name'; // set the default sort type
     $scope.sortReverse = false; // set the default sort order
@@ -60,9 +60,26 @@ app.controller('studentController', function($scope, $http, studentService, cour
         return (Math.floor($scope.totalRecord / $scope.rpp) + 1);
     }
 
-    $scope.gotoPage = function(page) {
+    $scope.gotoPage = function(page) 
+    {
+        
+        paginationService.getPage(page).then(function(data) 
+        {   
+            if (typeof data === "string") 
+            {
+                // in case page not found
+                $scope.message = data;
+            } 
+            else 
+            {
+                //in case page found
+                $scope.message = null;
+               // $scope.recordFrom = ($scope.rpp * page);
+            }
+        })
         $scope.recordFrom = ($scope.rpp * page);
     }
+    
     $scope.gotoNextPage = function() {
         if ($scope.recordFrom <= ($scope.totalRecord - $scope.rpp)) {
             $scope.recordFrom = ($scope.recordFrom + $scope.rpp);
@@ -71,17 +88,23 @@ app.controller('studentController', function($scope, $http, studentService, cour
 
         }
     }
-    $scope.gotoPrevPage = function() {
-        if ($scope.recordFrom >= ($scope.rpp)) {
+    $scope.gotoPrevPage = function() 
+    {
+        if ($scope.recordFrom >= ($scope.rpp)) 
+        {
             $scope.recordFrom = ($scope.recordFrom - $scope.rpp);
 
-        } else {
+        } 
+        else 
+        {
 
         }
     }
 
-    $scope.setPaginationClass = function(page) {
+    $scope.setPaginationClass = function(page) 
+    {
         var className = "class='active'";
         return className;
     }
+
 });

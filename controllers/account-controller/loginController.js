@@ -1,4 +1,4 @@
-app.controller('loginController', function($scope,DataService) {
+app.controller('loginController', function($scope, $window, DataService) {
     $scope.checked = false;
     $scope.status = false; //status for whether the use exist or not, ture or false.
    
@@ -16,34 +16,38 @@ app.controller('loginController', function($scope,DataService) {
       })
     }
 
-    $scope.getUser = function(id) 
+    $scope.getUser = function(id, password) 
     {
       // check required input
       if ($scope.form.uid.$error.required) 
       {
-        $scope.message = "Please add user's id";
+        $scope.message = "User id required!";
         return;
       }
 
-      DataService.getUser(id).then(function(data) 
+      if ($scope.form.password.$error.required) 
+      {
+        $scope.message = "Password required!";
+        return;
+      }
+
+      DataService.getUser(id, password).then(function(data) 
       {   
           if (typeof data === "string") 
           {
-              // iin case user not found
-              $scope.status = false;
-              $scope.checked = true;
-              $scope.message = data;
-              $scope.users = null;
+            // in case user not found
+            $scope.status = false;
+            $scope.checked = true;
+            $scope.message = data;
+            $scope.users = null;
           } 
           else 
           {
             //in case user found
-            $scope.status=true;
+            $scope.status = true;
             $scope.checked = false;
-            $scope.users = [data];
-            $scope.message=null;
-            console.log(data);
-            console.log([data]);
+            $scope.message = null;
+            $window.location.href = 'Home.html';
           }
       })
     }

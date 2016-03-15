@@ -1,4 +1,4 @@
-var app = angular.module("homeModule", ['ngRoute', 'pascalprecht.translate']);
+var app = angular.module("homeModule", ['ngRoute', 'ngMockE2E', 'pascalprecht.translate']);
 
 app.config(['$routeProvider', '$translateProvider', function($routeProvider, $translateProvider)
     {
@@ -38,10 +38,29 @@ app.config(['$routeProvider', '$translateProvider', function($routeProvider, $tr
             , suffix: '.json'
         });
         $translateProvider.preferredLanguage('en');
+        $translateProvider.useSanitizeValueStrategy(null);
 }]);
 
 app.controller("homeCtrl", function($translate, $scope, $rootScope, $routeParams) {
     $rootScope.changeLanguage = function(langKey) {
         $translate.use(langKey);
     };
+});
+
+// Reg. expression for /Login/:id
+var regexPageNum = /^\/page\/([0-9a-zA-Z]+)$/;
+app.run(function($httpBackend) 
+{
+    $httpBackend.whenGET(/\.json/).passThrough();
+    $httpBackend.whenGET(/\.html/).passThrough();
+  
+  // GET /page/:id
+  $httpBackend.whenGET(regexPageNum).respond(function(method, url) 
+  {
+    var page = url.match(regexPageNum)[1];
+    console.log(url);
+    console.log(regexPageNum);
+    console.log(page);
+    return [200, page];
+  });
 });

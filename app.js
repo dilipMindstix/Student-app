@@ -35,37 +35,39 @@ app.controller("indexCtrl", function($translate, $scope, $rootScope, $routeParam
     };
 });
 
-
 var users = [
-  {id: "dilip123", name: 'Dilip kumar'},
-  {id: "sunil123", name: 'Sunil kumar'},
-  {id: "mukesh123", name: 'Mukesh kumar'},
-  {id: "suresh123", name: 'Suresh kumar'}
+  {id : "dilip123", password : "123456", name : 'Dilip kumar'},
+  {id : "sunil123", password : "123456", name : 'Sunil kumar'},
+  {id : "mukesh123", password : "123456", name : 'Mukesh kumar'},
+  {id : "suresh123", password : "123456", name : 'Suresh kumar'}
 ];
 
 // Reg. expression for /user/:id
 var regexUserId = /^\/Login\/([0-9a-zA-Z]+)$/;
+//var regexUserId=/.*/;
 
-app.run(function($httpBackend) 
+app.run(function($httpBackend, $location, $routeParams) 
 {
     $httpBackend.whenGET(/\.json/).passThrough();
     $httpBackend.whenGET(/\.html/).passThrough();
   // GET /Login
   $httpBackend.whenGET('/Login').respond(users);
+
   // GET /user/:id
   $httpBackend.whenGET(regexUserId).respond(function(method, url) 
   {
-    var id = url.match(regexUserId)[1];
+     var id = url.match(regexUserId)[1];
+     // var id=url.search().uid;
+     // var password=url.search().password;
+  
     console.log(url);
     console.log(regexUserId);
-    console.log(url.match(regexUserId)[1]);
-    console.log(url.match(regexUserId)[2]);
+    console.log(id);
 
     var foundUser = findUser(id);
     return foundUser ? [200, foundUser] : [404, 'User not found'];
   });
 
-  
   // helper function to find a User by id
   function findUser(id) 
   {

@@ -17,7 +17,7 @@
       <div class="form-group">
          <label for="password">{{'PASSWORD' | translate}}</label>
          <div class="input-group">
-            <input type="password" ng-focus="checked=false"  class="form-control"  ng-model="password" placeholder="Enter password"  />
+            <input type="password" ng-focus="checked=false"  class="form-control" name="password" ng-model="password" placeholder="Enter password" required/>
             <div class="input-group-addon"><i class="fa fa-lock"></i></div>
          </div>
       </div>
@@ -34,7 +34,7 @@
             </div>
          </div>
          <div class="form-actions" >
-            <button ng-click="getUser(userId)" class="btn btn-primary" style="width:100%;">{{'LOGIN' | translate}}</button>
+            <button ng-click="getUser(userId,password)" class="btn btn-primary" style="width:100%;">{{'LOGIN' | translate}}</button>
          </div>
       </div>
    </form>
