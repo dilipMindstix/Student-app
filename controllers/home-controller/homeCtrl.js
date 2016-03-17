@@ -49,7 +49,7 @@ app.controller("homeCtrl", function($translate, $scope, $rootScope, $routeParams
 
 // Reg. expression for /Login/:id
 var regexPageNum = /^\/page\/([0-9a-zA-Z]+)$/;
-app.run(function($httpBackend) 
+app.run(function($httpBackend, $rootScope) 
 {
     $httpBackend.whenGET(/\.json/).passThrough();
     $httpBackend.whenGET(/\.html/).passThrough();
@@ -58,6 +58,7 @@ app.run(function($httpBackend)
   $httpBackend.whenGET(regexPageNum).respond(function(method, url) 
   {
     var page = url.match(regexPageNum)[1];
+    console.log($rootScope.rpp);
     console.log(url);
     console.log(regexPageNum);
     console.log(page);

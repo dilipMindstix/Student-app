@@ -1,4 +1,4 @@
-app.controller('studentController', function($scope, $http, studentService, courseService, paginationService) {
+app.controller('studentController', function($scope, $http, $rootScope, studentService, courseService, paginationService) {
     /*Reading students data */
     $scope.sortType = 'name'; // set the default sort type
     $scope.sortReverse = false; // set the default sort order
@@ -9,7 +9,7 @@ app.controller('studentController', function($scope, $http, studentService, cour
     //variable for pagination
     $scope.totalRecord = undefined;
     $scope.recordFrom = 0;
-    $scope.rpp = 5;
+    $rootScope.rpp = 5;
 
 
     $scope.showDiv = [];
@@ -57,7 +57,7 @@ app.controller('studentController', function($scope, $http, studentService, cour
 
     $scope.linkPerPage = function() {
         $scope.totalRecord = $scope.students.length;
-        return (Math.floor($scope.totalRecord / $scope.rpp) + 1);
+        return (Math.floor($scope.totalRecord / $rootScope.rpp) + 1);
     }
 
     $scope.gotoPage = function(page) 
@@ -74,15 +74,15 @@ app.controller('studentController', function($scope, $http, studentService, cour
             {
                 //in case page found
                 $scope.message = null;
-               // $scope.recordFrom = ($scope.rpp * page);
+               // $scope.recordFrom = ($rootScope.rpp * page);
             }
         })
-        $scope.recordFrom = ($scope.rpp * page);
+        $scope.recordFrom = ($rootScope.rpp * page);
     }
     
     $scope.gotoNextPage = function() {
-        if ($scope.recordFrom <= ($scope.totalRecord - $scope.rpp)) {
-            $scope.recordFrom = ($scope.recordFrom + $scope.rpp);
+        if ($scope.recordFrom <= ($scope.totalRecord - $rootScope.rpp)) {
+            $scope.recordFrom = ($scope.recordFrom + $rootScope.rpp);
 
         } else {
 
@@ -90,9 +90,9 @@ app.controller('studentController', function($scope, $http, studentService, cour
     }
     $scope.gotoPrevPage = function() 
     {
-        if ($scope.recordFrom >= ($scope.rpp)) 
+        if ($scope.recordFrom >= ($rootScope.rpp)) 
         {
-            $scope.recordFrom = ($scope.recordFrom - $scope.rpp);
+            $scope.recordFrom = ($scope.recordFrom - $rootScope.rpp);
 
         } 
         else 

@@ -3,7 +3,8 @@ app.controller('loginController', function($scope, $window, DataService) {
     $scope.status = false; //status for whether the use exist or not, ture or false.
    
     $scope.users = [];
-    $scope.userId = null;
+    $scope.userId = "dilip123";
+    $scope.password = "123456789";
     $scope.user = {};
     $scope.message = null;
 

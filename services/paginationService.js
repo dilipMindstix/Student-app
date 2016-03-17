@@ -1,4 +1,4 @@
-app.factory('paginationService', function paginationService($http) 
+app.factory('paginationService', function paginationService($http, $rootScope) 
 {
     var service = {
       getPage: getPage
