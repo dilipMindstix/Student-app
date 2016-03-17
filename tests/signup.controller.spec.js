@@ -42,5 +42,12 @@
                 expect(scope.address).not.toBe(null);
             });
         });
+
+        describe('Tests the length of password:-->', function() {
+            it('it Sets password as strong if the pass1.length > 8 ', function() {
+                scope.grade();
+                 expect(scope.pass1).toBe("strong");
+            });
+        });
     });
 })();

@@ -6,5 +6,14 @@ app.controller("signupController", function($scope) {
     $scope.fullName = null;
     $scope.address = null;
 
-    $scope.lengthRegex=/^[a-zA-Z]{6,}$/;
+    $scope.grade = function() {
+    var size = $scope.pass1.length;
+    if (size > 8) {
+      $scope.strength = 'strong';
+    } else if (size > 3) {
+      $scope.strength = 'medium';
+    } else {
+      $scope.strength = 'weak';
+    }
+  };
 });
