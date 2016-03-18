@@ -21,10 +21,13 @@
             });
         }));
 
-        describe('Test variable initialization:-->', function() {
-            it('$scope.userId and $scope.password will not be null and undefined', function() {
-                console.log(scope.userId);
+        describe('Initialy field should not be null:-->', function() {
+            it(' i.e. $scope.userId != null ', function() {
                 expect(scope.userId).not.toBe(null);
+            });
+
+            it('i.e. $scope.password != null', function() {
+                expect(scope.password).not.toBe(null);
             });
         });
     });

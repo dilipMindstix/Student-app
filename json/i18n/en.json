@@ -28,5 +28,8 @@
 	"ROLL_NO":"Roll no",
 	"ACTION":"Action",
 	"ADD_NEW_STUDENT_DATA":"Add new student data",
-	"ADD_NEW":"Add new"
+	"ADD_NEW":"Add new",
+
+	"ABOUT_US":"About us",
+	"ABOUT_US_INFO":"Student Apps is an apps made in AngularJS. This is build for the purpose of practice. This apps covers all the basic example of angularJs."
 }

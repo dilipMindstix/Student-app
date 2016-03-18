@@ -26,11 +26,15 @@ app.config(['$routeProvider', '$translateProvider', function($routeProvider, $tr
         when('/Custom filter Ex', {
                 templateUrl: 'view/content-view/Custom filter.html'
                 , controller: "customFilterCtrl"
-            })
-            .
+        }).
+
+        when('/Route params Ex', {
+            templateUrl: 'view/content-view/Route params.html',
+            controller: "routeParamsCtrl"
+        }).
         when('/Route params Ex/:message', {
-            templateUrl: 'view/content-view/Route params.html'
-            , controller: "routeParamsCtrl"
+            templateUrl: 'view/content-view/Route params.html',
+            controller: "routeParamsCtrl"
         });
 
         $translateProvider.useStaticFilesLoader({

@@ -4,14 +4,12 @@ app.controller("customFilterCtrl", function($scope) {
 
 app.filter('UpperCase', function() {
     return function(str) {
-        return String(str)
-            .toUpperCase();
+        return String(str).toUpperCase();
     }
 });
 
 app.filter('LowerCase', function() {
     return function(str) {
-        return String(str)
-            .toLowerCase();
+        return String(str).toLowerCase();
     }
 });

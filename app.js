@@ -5,18 +5,22 @@ app.config(['$routeProvider', '$translateProvider', function($routeProvider, $tr
     when('/', {
             templateUrl: 'view/account-view/Login.html',
             controller: "loginController"
-        })
-        .
+    }).
+
     when('/Login', {
             templateUrl: 'view/account-view/Login.html',
             controller: "loginController"
-        })
-        .
+    }).
+
     when('/Signup', {
         templateUrl: 'view/account-view/Signup.html',
         controller: "signupController"
-    });
+    }).
 
+    when('/About us', {
+        templateUrl: 'view/content-view/About us.html',
+        controller: "aboutUsController"
+    });
 
     $translateProvider.useStaticFilesLoader({
         prefix: 'json/i18n/',

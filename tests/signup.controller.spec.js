@@ -2,52 +2,47 @@
     'use strict';
 
     describe('2. Signup Controller:-->', function() {
-        var rootScope, scope, $controller, ctrl;
+        var $rootScope, $scope, $controller, ctrl;
 
         beforeEach(function() {
             module('indexModule');
         });
 
         beforeEach(inject(function(_$rootScope_, _$controller_) {
-            rootScope = _$rootScope_;
-            $controller = _$controller_;
+            $rootScope = _$rootScope_ ;
+            $controller = _$controller_ ;
         }));
 
-        beforeEach(inject(function() {
-            scope = rootScope.$new();
+        beforeEach(inject(function(){
+            $scope = $rootScope.$new();
             ctrl = $controller('signupController', {
-                '$scope': scope,
-                '$rootScope': rootScope
+                '$scope' : $scope,
+                '$rootScope' : $rootScope
             });
         }));
 
-        describe('Tests, if the fields cotains null value:-->', function() {
-            it('Tests, if scope.uid = null ', function() {
-                 expect(scope.uid).not.toBe(null);
+        describe('Initialy all field should be empty :-->', function() {
+            it('i.e. $scope.uid = "" ', function() {
+                 expect($scope.uid).toBe("");
             });
 
-            it('Tests, if scope.pass1 = null ', function() {
-                expect(scope.pass1).not.toBe(null);
+            it('i.e. $scope.pass1 = "" ', function() {
+                expect($scope.pass1).toBe("");
             });
 
-            it('Tests, if scope.pass2 = null ', function() {
-                expect(scope.pass2).not.toBe(null);
+            it('i.e. $scope.pass2 = "" ', function() {
+                expect($scope.pass2).toBe("");
             });
 
-            it('Tests, if scope.fullName = null ', function() {
-                expect(scope.fullName).not.toBe(null);
+            it('i.e. $scope.fullName = "" ', function() {
+                expect($scope.fullName).toBe("");
             });
 
-            it('Tests, if scope.address = null ', function() {
-                expect(scope.address).not.toBe(null);
+            it('i.e. $scope.address = "" ', function() {
+                expect($scope.address).toBe("");
             });
         });
 
-        describe('Tests the length of password:-->', function() {
-            it('it Sets password as strong if the pass1.length > 8 ', function() {
-                scope.grade();
-                 expect(scope.pass1).toBe("strong");
-            });
-        });
+                
     });
 })();

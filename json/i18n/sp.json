@@ -28,5 +28,8 @@
 	"ROLL_NO":"Número de rollo",
 	"ACTION":"Acción",
 	"ADD_NEW_STUDENT_DATA":"Añadir nuevos datos del estudiante",
-	"ADD_NEW":"Añadir nuevo"
-	}
+	"ADD_NEW":"Añadir nuevo",
+
+	"ABOUT_US":"Sobre nosotros",
+	"ABOUT_US_INFO":"Aplicaciones estudiante es un aplicaciones hechas en AngularJS . Esto es construir para el propósito de la práctica . Esta aplicaciones cubre todo el ejemplo básico de AngularJS ."
+}
