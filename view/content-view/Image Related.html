@@ -1,0 +1,51 @@
+<div ng-controller="imageRelatedCtrl" style="padding-left: 30px;">
+	
+	<ul class="list-group imageEx">
+		<li class="list-group-item">
+			<a ng-click="div1 = !div1" class="image-example-a">Upload with form submit and validations</a>
+			<div ng-show="div1" >
+				<form name="Form.div1">  
+				   	Select an image:
+				      <input type="file" ngf-select ng-model="picFile" name="file" accept="image/*" ngf-max-size="2MB" required ngf-model-invalid="errorFile">	    
+				    <br>
+				    <button>Upload</button>
+				  </form>
+			</div>
+		</li>
+		
+		<li class="list-group-item">
+			<a  ng-click="div2 = !div2" class="image-example-a">Upload multiple files one by one on file select</a>
+			<div ng-show="div2">
+				
+			</div>
+		</li>
+
+		<li class="list-group-item">
+			<a  ng-click="div3 = !div3" class="image-example-a">Upload multiple files in one request on file select</a>
+			<div ng-show="div3">
+				
+			</div>
+		</li>
+
+		<li class="list-group-item">
+			<a ng-click="div4 = !div4" class="image-example-a">Upload single file on file select</a>
+			<div ng-show="div4">
+				shjhn
+			</div>
+		</li>
+
+		<li class="list-group-item">
+			<a ng-click="div5 = !div5" class="image-example-a">Drop and upload with $watch</a>
+			<div ng-show="div5">
+				sglk
+			</div>
+		</li>
+
+		<li class="list-group-item">
+			<a ng-click="div6 = !div6" class="image-example-a">Image Crop and Upload</a>
+			<div ng-show="div6">
+				sgj
+			</div>
+		</li>
+	</ul>
+</div>

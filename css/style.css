@@ -26,3 +26,19 @@ body {
     color: red;
     font-size: 20px;
 }
+
+
+.image-example-a:hover{
+    cursor: pointer;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.image-example-div {
+    width: 95%;
+    height: auto;
+    background-color:#eff5f5;
+    border-radius: 10px;
+    border: groove;
+    padding: 30px;
+}

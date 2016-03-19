@@ -35,6 +35,11 @@ app.config(['$routeProvider', '$translateProvider', function($routeProvider, $tr
         when('/Route params Ex/:message', {
             templateUrl: 'view/content-view/Route params.html',
             controller: "routeParamsCtrl"
+        }).
+
+        when( '/Image related Ex', {
+            templateUrl: "view/content-view/Image Related.html",
+            controller: "imageRelatedCtrl"
         });
 
         $translateProvider.useStaticFilesLoader({
